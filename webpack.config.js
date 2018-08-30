@@ -4,7 +4,9 @@ module.exports = {
     mode: "development",
     entry: {
         signup: "./src/pages/signup.js",
-        signin: "./src/pages/login.js"
+        signin: "./src/pages/login.js",
+        question: "./src/pages/questions.js",
+        allquiz: "./src/pages/allquiz.js"
     },
     output: {
         path: path.resolve(__dirname, "public/dist"),
