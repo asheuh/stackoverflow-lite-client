@@ -1,12 +1,23 @@
 class Api {
     constructor() {
-        this.baseUrl = "http://stackoverflow-lite-heroku.herokuapp.com/api/v2";
+        this.baseUrl = "http://127.0.0.1:5000/api/v2";
     }
 
     post(endpoint, data, token = null) {
         return fetch(`${this.baseUrl}${endpoint}`, {
             method: "POST",
             body: JSON.stringify(data),
+            headers: {
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`,
+                "content-type": "application/json"
+            }
+        });
+    }
+
+    get(endpoint, token) {
+        return fetch(`${this.baseUrl}${endpoint}`, {
+            method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
                 "content-type": "application/json"
