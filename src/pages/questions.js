@@ -15,7 +15,7 @@ question.addEventListener("click", event => {
         .catch(error => console.error('Error '+ error))
         .then(data => {
             if (data.message === "Question posted successfully") {
-                /* let status = document.getElementById('message')
+                /*let status = document.getElementById('msg')
                 status.style.backgroundColor = "#F0FAEE";
                 status.style.padding = "8px";
                 status.style.color = "#259814";
