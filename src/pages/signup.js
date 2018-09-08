@@ -25,7 +25,6 @@ register.addEventListener("click", event => {
                 message.style.color = "#259814";
                 message.innerHTML = data.message;*/
                 redirect: window.location.replace("../../templates/mains/home.html");
-                //window.location.reload()
             }
             else if (data.message !== "User created successfully") {
                 let err = document.getElementById('message')

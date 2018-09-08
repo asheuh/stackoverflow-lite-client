@@ -17,11 +17,6 @@ login.addEventListener("click", event => {
             if (data.message === "Successfully logged in") {
                 let status = document.getElementById('message')
                 auth.setToken(data.access_token);
-                status.style.backgroundColor = "#F0FAEE";
-                status.style.padding = "8px";
-                status.style.color = "#259814";
-                status.innerHTML = data.message;
-                window.location.reload();
                 redirect: window.location.replace("../../templates/mains/home.html");
             } else {
                 let err = document.getElementById('message')

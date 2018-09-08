@@ -20,6 +20,12 @@ class Authentication {
         return localStorage.removeItem('access_token');
     }
 
+    logOut = () => {
+        logout.addEventListener("click", event => {
+            removeToken();
+            redirect: window.location.replace("../../templates/mains/signin.html");
+        })
+    }
 }
 const auth = new Authentication();
 export default auth;
