@@ -19,17 +19,15 @@
                 <ul class="myNav">
                     <div class="my-container">
                         <li>
-                            <a style="font-size: 22px; color: gold;" href="home.html"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
+                            <a style="font-size: 22px; color: gold;" href="allquestions.html"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
                         </li>
                         <li class="right">
-                            <a href="signin.html">
-                                <img class="image" style="border-radius: 50%; width: 30px; height: 30px;" src="../../static/images/logout-rounded-filled.png">
+                            <a href="#" id="logout">
+                                <img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/logout-rounded-filled.png">
                             </a>
                         </li>
                         <li class="right">
-                            <a href="userprofile.html">
-                                <img class="image" style="border-radius: 50%; width: 30px; height: 30px;" src="../../static/images/asheuh.jpeg">
-                            </a>
+                            <a href="userprofile.html" id="profile"></a>
                         </li>
                     </div>
                 </ul>
@@ -42,10 +40,11 @@
     </script>
     <div class="content">
         <div class="my-container">
-            <h1>Ask a Question</h1>
-            <hr>
-            <form class="non" action="/action_page.php">
+            <form class="non">
                 <div class="scontainer">
+                    <h1>Ask a Question</h1>
+                    <hr>
+                    <div id="msg"></div>
                     <input type="text" placeholder="Title...." name="title" id="title" required>
                     <textarea id="description" name="desc" placeholder="Description..." style="height:200px"></textarea>
                     <a href="#" class="btn btn-primary" id="question" type="submit">Post</a>
