@@ -1,12 +1,11 @@
 class Authentication {
 
     UserIsLoggedIn = () => {
-        const token = this.getToken()
-        if (token == null || 'undefined') {
+        const secretkey = this.getToken()
+        if (secretkey === null || secretkey === 'undefined') {
             return false;
-        } else {
-            return true;
         }
+        return true;
     }
     setToken = (token) => {
         return localStorage.setItem('access_token', token);
@@ -21,8 +20,9 @@ class Authentication {
     }
 
     logOut = () => {
+        let element = document.getElementById("logout");
         logout.addEventListener("click", event => {
-            removeToken();
+            this.removeToken();
             redirect: window.location.replace("../../templates/mains/signin.html");
         })
     }
