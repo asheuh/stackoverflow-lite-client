@@ -19,7 +19,7 @@
                 <ul class="myNav">
                     <div class="my-container">
                         <li>
-                            <a style="font-size: 22px; color: gold;" href="allquestions.html"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
+                            <a style="font-size: 22px; color: gold;" href="/questions"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
                         </li>
                         <li class="right">
                             <a href="#" id="logout">
@@ -27,33 +27,36 @@
                             </a>
                         </li>
                         <li class="right">
-                            <a href="userprofile.html" id="profile"></a>
+                            <a href="/users/userprofile" id="profile"></a>
                         </li>
                     </div>
                 </ul>
             </div>
         </nav>
     </header>
-    <div include-html="../../templates/mains/menu.html"></div>
+    <div include-html=" ../../menu.html "></div>
     <script>
         includeHTML();
     </script>
-    <div class="content">
-        <div class="my-container">
-            <form class="non">
-                <div class="scontainer">
-                    <h1>Ask a Question</h1>
-                    <hr>
-                    <div id="msg"></div>
-                    <input type="text" placeholder="Title...." name="title" id="title" required>
-                    <textarea id="description" name="desc" placeholder="Description..." style="height:200px"></textarea>
-                    <a href="#" class="btn btn-primary" id="question" type="submit">Post</a>
+    <div class="content grid-3" id="details"></div>
+    <div class="content grid-3">
+        <div>
+            <div class="summary">
+                <a onclick="document.getElementById('id01').style.display='block'" class="btn btn-success" style="background-color: #D6EAF8; color: black;" href="#">Post your Answer</a>
+                <div id="id01" class="modal">
+                    <form class="modal-content animate" action="/action_page.php">
+                        <div id="msg"></div>
+                        <div class="scontainer">
+                            <label style="float:left" for="psw"><h2>Your Answer</h2></label>
+                            <textarea id="answer" name="messa" placeholder="Type your answer here..." style="height:200px"></textarea>
+                            <a href="#" id="send" class="btn btn-primary" type="submit">Submit</a>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-    <script src="../../dist/question.bundle.js"></script>
+    <script src="../../dist/answer.bundle.js "></script>
 </body>
 
 </html>
-

@@ -23,7 +23,7 @@ class Authentication {
         let element = document.getElementById("logout");
         logout.addEventListener("click", event => {
             this.removeToken();
-            redirect: window.location.replace("../../templates/mains/signin.html");
+            redirect: window.location.replace("/auth/login");
         })
     }
 }
