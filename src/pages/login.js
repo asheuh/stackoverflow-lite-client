@@ -13,12 +13,12 @@ const handleLogin = () => {
 
         api.post("/auth/login", data)
             .then(res => res.json())
-            .catch(error => console.error('Error '+ error))
+            .catch(error => console.error('Error ' + error))
             .then(data => {
                 if (data.message === "Successfully logged in") {
                     let status = document.getElementById('message')
                     auth.setToken(data.access_token);
-                    redirect: window.location.replace("../../templates/mains/allquestions.html");
+                    redirect: window.location.replace("/questions");
                 } else {
                     let err = document.getElementById('message')
                     err.style.backgroundColor = "#FCDFDF";

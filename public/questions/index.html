@@ -5,10 +5,10 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../static/css/asheuh-framework.css" type="text/css">
-    <link rel="shortcut icon" href="../../static/images/H-logo.ico">
-    <link rel="stylesheet" href="../../static/css/style.css" type="text/css">
-    <script src="../../static/js/app.js"></script>
+    <link rel="stylesheet" href="../static/css/asheuh-framework.css" type="text/css">
+    <link rel="shortcut icon" href="../static/images/H-logo.ico">
+    <link rel="stylesheet" href="../static/css/style.css" type="text/css">
+    <script src="../static/js/app.js"></script>
     <title>Stackoverflow | Lite</title>
 </head>
 
@@ -19,22 +19,22 @@
                 <ul class="myNav">
                     <div class="my-container">
                         <li>
-                            <a style="font-size: 22px; color: gold;" href="allquestions.html"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
+                            <a style="font-size: 22px; color: gold;" href="/questions"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
                         </li>
                         <li class="right">
                             <a href="#" id="logout">
-                                <img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/logout-rounded-filled.png">
+                                <img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../static/images/logout-rounded-filled.png">
                             </a>
                         </li>
                         <li class="right">
-                            <a href="userprofile.html" id="profile"></a>
+                            <a href="/users/userprofile" id="profile"></a>
                         </li>
                     </div>
                 </ul>
             </div>
         </nav>
     </header>
-    <div include-html="menu.html"></div>
+    <div include-html="../menu.html"></div>
     <script>
         includeHTML();
     </script>
@@ -49,7 +49,7 @@
         </div>
         <div class="side-grid">
             <div class="post">
-                <a href="../../templates/mains/post_question.html" class="btn btn-primary">Post Question</a>
+                <a href="/questions/newquestion" class="btn btn-primary">Post Question</a>
             </div>
             <div class="cal" id="cal" style="margin-top: 1.5em;">
                 <div class="month">
@@ -73,27 +73,56 @@
                 <div class="cal-frame">
                     <table class="curr">
                         <tr>
-                            <td class="nil"></td><td class="nil"></td><td class="nil"></td><td>1</td><td>2</td><td>3</td><td>4</td>
+                            <td class="nil"></td>
+                            <td class="nil"></td>
+                            <td class="nil"></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
                         </tr>
                         <tr>
-                            <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td class="today">10</td><td>11</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td class="today">10</td>
+                            <td>11</td>
                         </tr>
                         <tr>
-                            <td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>16</td>
+                            <td>17</td>
+                            <td>18</td>
                         </tr>
                         <tr>
-                            <td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
+                            <td>19</td>
+                            <td>20</td>
+                            <td>21</td>
+                            <td>22</td>
+                            <td>23</td>
+                            <td>24</td>
+                            <td>25</td>
                         </tr>
                         <tr>
-                            <td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td class="nil"></td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                            <td>29</td>
+                            <td>30</td>
+                            <td>31</td>
+                            <td class="nil"></td>
                         </tr>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-    <script src="../../dist/allquiz.bundle.js"></script>
+    <script src="../dist/allquiz.bundle.js"></script>
 </body>
 
 </html>
-

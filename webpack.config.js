@@ -7,7 +7,8 @@ module.exports = {
         signin: "./src/pages/login.js",
         question: "./src/pages/questions.js",
         allquiz: "./src/pages/allquiz.js",
-        userprofile: "./src/pages/userprofile.js"
+        userprofile: "./src/pages/userprofile.js",
+        answer: "./src/pages/answers.js"
     },
     output: {
         path: path.resolve(__dirname, "public/dist"),

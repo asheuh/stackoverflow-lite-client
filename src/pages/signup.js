@@ -16,13 +16,12 @@ const handleSignup = () => {
         api
             .post("/auth/register", data)
             .then(res => res.json())
-            .catch(error => console.error('Error '+ error))
+            .catch(error => console.error('Error ' + error))
             .then(data => {
                 if (data.message === "User created successfully") {
                     auth.setToken(data.access_token);
-                    redirect: window.location.replace("../../templates/mains/allquestions.html");
-                }
-                else if (data.message !== "User created successfully") {
+                    redirect: window.location.replace("/questions");
+                } else if (data.message !== "User created successfully") {
                     let err = document.getElementById('message')
                     for (let key in data.message) {
                         err.style.display = 'block'

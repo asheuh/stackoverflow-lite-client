@@ -5,9 +5,8 @@ import temps from "../utils/templates";
 
 const postQuestion = () => {
     if (!auth.UserIsLoggedIn()) {
-        window.location.replace("../../templates/mains/signin.html");
-    }
-    else if (auth.UserIsLoggedIn()) {
+        window.location.replace("/auth/login");
+    } else if (auth.UserIsLoggedIn()) {
         api.get('/users/userprofile', auth.getToken())
             .then(res => res.json())
             .then(data => {
@@ -25,7 +24,7 @@ const postQuestion = () => {
 
         api.post("/questions", data, auth.getToken())
             .then(res => res.json())
-            .catch(error => console.error('Error '+ error))
+            .catch(error => console.error('Error ' + error))
             .then(data => {
                 if (data.message === "Question posted successfully") {
                     let status = document.getElementById('msg')
@@ -33,14 +32,17 @@ const postQuestion = () => {
                     status.style.padding = "8px";
                     status.style.color = "#259814";
                     status.innerHTML = data.message;
-                }
-                else if (data.message !== "Question posted successfully") {
+                } else if (data.message !== "Question posted successfully") {
                     let err = document.getElementById('msg');
                     err.style.display = "block";
                     err.style.backgroundColor = "#FCDFDF";
                     err.style.padding = "8px";
                     err.style.color = "red";
                     err.innerHTML = data.message;
+                }
+                else if (Object.values(data).includes('Token has expired')) {
+                    auth.removeToken();
+                    window.location.href = "/auth/login";
                 }
             });
     });
