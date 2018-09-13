@@ -21,7 +21,7 @@ const postQuestion = () => {
             description: description.value
         };
 
-        api.post("/questions", data, auth.getToken())
+        api.post("/questions/newquestion", data, auth.getToken())
             .then(res => res.json())
             .catch(error => console.error('Error ' + error))
             .then(data => {
