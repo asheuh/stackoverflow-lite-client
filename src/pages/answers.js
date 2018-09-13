@@ -21,12 +21,13 @@ import temps from "../utils/templates";
                 auth.logOut();
             }
             let element = document.getElementById('details');
+            let el = document.getElementById('answs');
             api.get(`/questions/details/${this.id}`, auth.getToken())
                 .then(res => res.json())
                 .then(data => {
                     if(Object.values(data).includes('Token has expired')) {
                         auth.removeToken();
-                        window.location.href = "/auth/login";
+                        window.location.reload();
                     }
                     else if (data) {
                         element.innerHTML = `
@@ -35,33 +36,16 @@ import temps from "../utils/templates";
                             <hr>
                             <div class="quiz">
                                 <ul class="qa">
-                                    <p class="asheuh">Posted by ${data.data.id} on ${data.data.date_created}</p>
+                                    <p class="asheuh">Posted by ${data.data.question.id} on ${data.data.question.date_created}</p>
                                     <li class="no_dropdown">
-                                        <h3>${data.data.title}</h3>
+                                        <h3>${data.data.question.title}</h3>
                                     </li>
                                     <div class="d-container">
                                         <ul class="stats">
-                                            <div class="new-container">
+                                            <div class="new-container" style="padding-top: 3px; padding-bottom: 3px;">
                                                 <h4>Question</h4>
-                                                <p>${data.data.description}</p>
+                                                <p>${data.data.question.description}</p>
                                                 <h4>Answers</h4>
-                                                <div class="first span-col-3">
-                                                    <div class="">
-                                                        <hr>
-                                                        <div class="panel pale-green">
-                                                            <p>By Brian Mboya 20mins ago</p>
-                                                            <p>London is the most populous city in the United Kingdom, with a metropolitan area of over 9 million inhabitants.</p>
-                                                            <a href="#"><img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/tick-icon-44.png"></a>
-                                                            <a href="#"><img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/x.png"></a>
-                                                        </div>
-                                                        <div class="panel pale-green">
-                                                            <p>By Stacy Mboya 20mins ago</p>
-                                                            <p>London is the most populous city in the United Kingdom, with a metropolitan area of over 9 million inhabitants.</p>
-                                                            <a href="#"><img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/tick-icon-44.png"></a>
-                                                            <a href="#"><img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/x.png"></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </ul>
                                     </div>
@@ -72,12 +56,39 @@ import temps from "../utils/templates";
                             <div class="grid-3" style="margin-top: 6em">
                                 <div class="summary" style="border: 1px solid green; text-align: center;">
                                     <h4 style="margin-top: 1em;">Total answers</h4>
-                                    <h5><a href="#">${data.data.answers}</a></h5>
+                                    <h5><a href="#">${data.data.question.answers}</a></h5>
                                 </div>
                             </div>
                         </div>
 
                         `;
+                        let answer_data = data.data.answers;
+                        if (answer_data.length === 0) {
+                            el.innerHTML = `
+                            <div class="panel pale-green">
+                                <p>There are no answers to this question yet, please post an answer</p>
+                            </div>
+                            `;
+                        }
+                        answer_data.forEach(function(item) {
+                            if (item) {
+                                let node = document.createElement('div');
+                                node.classList.add('answrs');
+                                node.innerHTML = `
+                                    <div class="panel pale-green">
+                                        <p class="asheuh">Answered by ${item.owner} on ${item.date_created}</p>
+                                        <p>${item.answer}</p>
+                                        <div>
+                                            <a href="#"><img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/up2.png"></a>
+                                            <p class="image" style"border-radius: 50%; width: 20px; height: 20px;">${item.votes}</p>
+                                            <a href="#"><img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/down.png"></a>
+                                        </div>
+                                    </div>
+
+                                `;
+                                el.appendChild(node);
+                            }
+                        });
                     }
                 });
         }
