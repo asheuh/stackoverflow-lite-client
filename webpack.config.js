@@ -8,7 +8,8 @@ module.exports = {
         question: "./src/pages/questions.js",
         allquiz: "./src/pages/allquiz.js",
         userprofile: "./src/pages/userprofile.js",
-        answer: "./src/pages/answers.js"
+        answer: "./src/pages/answers.js",
+        home: "./src/pages/homepage.js"
     },
     output: {
         path: path.resolve(__dirname, "public/dist"),

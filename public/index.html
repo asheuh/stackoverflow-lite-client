@@ -30,52 +30,32 @@
     </header>
     <div class="my-container content grid-3">
         <div class="span-col-2">
-            <h1>Popular questions</h1>
-            <div class="search">
-                <input class="animated" name="search" type="text" placeholder="Search....">
+            <div class="search" style="margin-top: 1em;">
+                <img src="./static/images/quiz.jpg" style="width: 100%;">
             </div>
             <hr>
             <div class="quiz">
                 <ul class="qa">
-                    <p class="asheuh">Asked 20mins ago by Brian Mboya</p>
-                    <li class="dropdown-btn">
-                        <a href="#">Jquery search working on my desktop device and also on chrome mobile emulator but not working in real device</a>
-                    </li>
-                    <div class="dropdown-container">
-                        <ul class="stats">
-                            <div class="new-container">
-                                <h2>Question summary</h2>
-                                <p>
-                                    I have a website which contains jquery search (search based on object properties) and the search result (HTML content) is appended from jquery. it is working perfectly fine on a web device and also on chrome mobile emulator (in dev console) but it is
-                                    not working on the real device (Tested on both Android and IOS)
+                    <h2 class="asheuh">About Stackoverflow-lite</h2>
+                    <li class="d">
+                        <p style="color: black;">
+                            Stackoverflow-lite is a minor, simple version of the Stackoverflow which enables users (developers) to ask
+                            computer related questions and get quick responses from other users in the platform. The main reasons we build this 
+                            platform is the one I just mentioned above and some others which are listed bellow.
+                        </p>
+                        <ul>
+                            <li>
+                                <p>To create a variouty of great thinkers sharing knowledge and developer awesome 
+                                    stuff that will change the world of technology
                                 </p>
-                                <div class="grid-3">
-                                    <div class="summary">
-                                        <h4>Total answers</h4>
-                                        <h5><a href="#">0</a></h5>
-                                        <a class="btn btn-success" href="/auth/login">Post Answer</a>
-                                    </div>
-                                    <div class="summary">
-                                        <h4>Total votes</h4>
-                                        <h5><a href="#">10</a></h5>
-                                        <a href="/auth/login" class="btn btn-success">add vote</a>
-                                    </div>
-                                    <div class="summary">
-                                        <h4>Total views</h4>
-                                        <h5><a href="#">18</a></h5>
-                                        <a href="UI/templates/mains/nonloginqdetails.html" class="btn btn-primary">view details</a>
-                                    </div>
-                                </div>
-                            </div>
+                            </li>
+                            <li><p>To simplify things for some other users</p></li>
                         </ul>
-                    </div>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div class="side-grid">
-            <div class="post">
-                <a href="/auth/login" class="btn btn-primary">Post Question</a>
-            </div>
+        <div class="side-grid" style="margin-top: 2em;">
             <div class="side-grid">
                 <div class="grid-3">
                     <div class="summary" style="border: 1px solid green; text-align: center;">
@@ -83,11 +63,11 @@
                         <h5><a href="#">355542</a></h5>
                     </div>
                     <div class="summary" style="border: 1px solid green; text-align: center;">
-                        <h4 style="margin-top: 1em;">Total votes</h4>
+                        <h4 style="margin-top: 1em;">Total questions</h4>
                         <h5><a href="#">16550</a></h5>
                     </div>
                     <div class="summary" style="border: 1px solid green; text-align: center;">
-                        <h4 style="margin-top: 1em;">Total views</h4>
+                        <h4 style="margin-top: 1em;">Total users</h4>
                         <h5><a href="#">1528</a></h5>
                     </div>
                 </div>
@@ -196,6 +176,10 @@
     <script>
         includeHTML();
     </script>
+    <div class="my-footer">
+        <p class="foot">&copy; Copyright 2018 Stackoverflow lite, Inc. All Rights Reserved. <a class="default-link" href="#">Terms and Privacy</a></p>
+    </div>
+    <script src="./dist/home.bundle.js"></script>
 </body>
 
 </html>

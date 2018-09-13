@@ -1,6 +1,5 @@
 import api from "../utils/api";
 import auth from "../utils/auth";
-import home from "../utils/homepage";
 
 const handleSignup = () => {
     register.addEventListener("click", event => {

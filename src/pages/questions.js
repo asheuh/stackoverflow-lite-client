@@ -1,6 +1,5 @@
 import api from "../utils/api";
 import auth from "../utils/auth";
-import home from "../utils/homepage";
 import temps from "../utils/templates";
 
 const postQuestion = () => {

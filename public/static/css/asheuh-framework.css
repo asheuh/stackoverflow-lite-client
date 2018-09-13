@@ -288,6 +288,12 @@ Grid system
 .span-col-4{grid-column: span 4 / auto;}
 .span-col-5{grid-column: span 5 / auto;}
 
+.grid-7 {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+}
+
 .grid-6 {
     display: grid;
     grid-template-columns: repeat(6, 1fr);

@@ -9,7 +9,7 @@
 
             return `
             <ul class="qa">
-                <p class="asheuh">By ${result.data[item]['created_by']} on ${result.data[item]['date_created']}</p>
+                <p class="asheuh">Asked by ${result.data[item]['created_by']} on ${result.data[item]['date_created']}</p>
                 <li class="d">
                     <a href="/questions/details/?${result.data[item]['id']}">${result.data[item]['title']}</a>
                     <div class="d-container">
@@ -20,7 +20,7 @@
                                 <div class="grid-3">
                                     <div class="summary">
                                         <h4>Total answers</h4>
-                                        <h5><a href="#">${result.data[item]['answers']}</a></h5>
+                                        <h5><a href="/questions/details/?${result.data[item]['id']}">${result.data[item]['answers']}</a></h5>
                                     </div>
                                     <div class="summary">
                                         <a style="background-color: #D6EAF8; color: black;" class="btn btn-primary" href="/questions/details/?${result.data[item]['id']}">view answers</a>
