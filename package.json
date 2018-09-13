@@ -4,7 +4,6 @@
   "description": "The frontend part of the stackoverflow-lite application using ES6",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm install",
     "start": "webpack --watch & live-server public/",
     "watch": "webpack --watch",
     "build": "webpack --config webpack.config.js"
