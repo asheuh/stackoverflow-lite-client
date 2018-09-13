@@ -4,6 +4,7 @@
   "description": "The frontend part of the stackoverflow-lite application using ES6",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npn install",
     "start": "webpack --watch & live-server public/",
     "watch": "webpack --watch",
     "build": "webpack --config webpack.config.js"
@@ -19,8 +20,8 @@
     "webpack-cli": "^3.0.7"
   },
   "engines": {
-    "node": "8.11.1",
-    "npm": "6.4.1"
+      "node": "8.11.1",
+      "npm": "6.4.1"
   },
   "author": "Brian Mboya",
   "license": "ISC"
