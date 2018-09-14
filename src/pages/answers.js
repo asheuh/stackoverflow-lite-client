@@ -9,10 +9,39 @@ import temps from "../utils/templates";
             this.showDetails();
             this.postAnswer();
             this.setState = this.setState.bind(this);
+            this.handleUpvote = this.handleUpvote.bind(this);
+            this.handleDownvote = this.handleDownvote.bind(this);
             this.state = {
-                isFetching: false
+                isFetching: false,
+                upvoted: false,
+                downvoted: false
             };
             auth.showLoading(this.state);
+        }
+
+        handleUpvote = () => {
+            this.state.upvoted = !this.state.upvoted;
+            this.state.downvoted = this.state.downvoted;
+        }
+
+        handleDownvote = () => {
+            this.state.downvoted = !this.state.downvoted;
+            this.state.upvoted = this.state.upvoted;
+        }
+
+        computeUpvoteDownvote = () => {
+            if (this.state.upvoted) {
+                let elemt = document.getElementById('up');
+                api.patch(`/questions/${this.id}/answers/${this.id}/upvote`, auth.getToken())
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                    });
+            }else if (this.state.downvoted) {
+                return 2 - 1;
+            }else {
+                return 4;
+            }
         }
 
         setState = (newState) => {
@@ -60,6 +89,9 @@ import temps from "../utils/templates";
                                                     <div class="new-container" style="padding-top: 3px; padding-bottom: 3px;">
                                                         <h4>Question</h4>
                                                         <p>${data.data.question.description}</p>
+                                                        <div class="summary">
+                                                            <a href="#" id="del" class="btn btn-danger">Delete Question</a>
+                                                        </div>
                                                         <h4>Answers</h4>
                                                     </div>
                                                 </ul>
@@ -75,8 +107,20 @@ import temps from "../utils/templates";
                                         </div>
                                     </div>
                                 </div>
-
                                 `;
+                                del.addEventListener('click', event => {
+                                    event.preventDefault();
+                                    api.delete(`/questions/details/${this.id}`, auth.getToken())
+                                        .then(res => res.json())
+                                        .then(data => {
+                                            if (data.message === "Question deleted successfully") {
+                                                window.location.reload();
+                                            }
+                                            else if (data.message !== "Answer posted successfully") {
+                                                alert(data.message);
+                                            }
+                                        });
+                                });
                                 let answer_data = data.data.answers;
                                 if (answer_data.length === 0) {
                                     el.innerHTML = `
@@ -93,11 +137,8 @@ import temps from "../utils/templates";
                                             <div class="panel pale-green">
                                                 <p class="asheuh">Answered by ${item.owner} on ${item.date_created}</p>
                                                 <p>${item.answer}</p>
-                                                <div>
-                                                    <a href="#"><img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/up2.png"></a>
-                                                    <p class="image" style"border-radius: 50%; width: 20px; height: 20px;">${item.votes}</p>
-                                                    <a href="#"><img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/down.png"></a>
-                                                </div>
+                                                <button style="background-color: #D6EAF8; color: black;" class="btn btn-success"><i class="fas fa-arrow-alt-circle-up"> ${item.votes}</i> Upvote</button>
+                                                <button style="background-color: #D6EAF8; color: black;" class="btn btn-success"><i class="fas fa-arrow-alt-circle-down"></i> Downvote</button>
                                             </div>
 
                                         `;

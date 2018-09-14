@@ -34,6 +34,14 @@ import temps from "../utils/templates";
                     api.get("/questions", auth.getToken())
                         .then(res => res.json())
                         .then(data => {
+                            if (data.message === "There is no questions found") {
+                                let el = document.getElementById('msg');
+                                el.innerHTML = `
+                                <div class="panel pale-green">
+                                    <p>${data.message}, feel free to post your questions here by clicking the post question button</p>
+                                </div>
+                                `;
+                            }
                             for (let i in data.data) {
                                 let parentNode = document.getElementById("msg");
                                 let quizBody = temps.questionBody(data, i);
