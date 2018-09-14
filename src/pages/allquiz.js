@@ -5,36 +5,51 @@ import temps from "../utils/templates";
 (function(window) {
     class Questions {
         constructor() {
+            this.setState = this.setState.bind(this);
+            this.state = {
+                isFetching: false
+            };
             this.fetchQuestions();
+            auth.showLoading(this.state);
         }
-        fetchQuestions = () => {
 
-            if (!auth.UserIsLoggedIn()) {
-                window.location.href = "/auth/login";
-            } else if (auth.UserIsLoggedIn()) {
-                api.get('/users/userprofile', auth.getToken())
-                    .then(res => res.json())
-                    .then(data => {
-                        temps.profilePageLink(data);
-                    });
-                auth.logOut();
-            }
-            api.get("/questions", auth.getToken())
-                .then(res => res.json())
-                .then(data => {
-                    for (let i in data.data) {
-                        let parentNode = document.getElementById("msg");
-                        let quizBody = temps.questionBody(data, i);
-                        let node = document.createElement("div");
-                        node.classList.add("quiz");
-                        node.innerHTML = quizBody;
-                        parentNode.appendChild(node);
-                    }
-                    if (Object.values(data).includes("Token has expired")) {
-                        auth.removeToken();
-                        window.location.href = "/auth/login";
-                    }
-                });
+        setState = (newState) => {
+            return Object.assign(this.state, newState);
+        }
+
+        fetchQuestions = () => {
+            setTimeout(() => {
+                if (!auth.UserIsLoggedIn()) {
+                    window.location.href = "/auth/login";
+                } else if (auth.UserIsLoggedIn()) {
+                    this.setState({isFetching: true});
+                    api.get('/users/userprofile', auth.getToken())
+                        .then(res => res.json())
+                        .then(data => {
+                            this.setState({isFetching: false});
+                            document.getElementById("page").style.display = "block";
+                            document.getElementById("loader").style.display = "none";
+                            temps.profilePageLink(data);
+                        });
+                    api.get("/questions", auth.getToken())
+                        .then(res => res.json())
+                        .then(data => {
+                            for (let i in data.data) {
+                                let parentNode = document.getElementById("msg");
+                                let quizBody = temps.questionBody(data, i);
+                                let node = document.createElement("div");
+                                node.classList.add("quiz");
+                                node.innerHTML = quizBody;
+                                parentNode.appendChild(node);
+                            }
+                            if (Object.values(data).includes("Token has expired")) {
+                                auth.removeToken();
+                                window.location.href = "/auth/login";
+                            }
+                        });
+                    auth.logOut();
+                }
+            });
         }
     }
     window.Questions = Questions;

@@ -13,43 +13,47 @@
 </head>
 
 <body>
-    <header class="header">
-        <nav class="myNavbar">
-            <div>
-                <ul class="myNav">
-                    <div class="my-container">
-                        <li>
-                            <a style="font-size: 22px; color: gold;" href="/questions"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
-                        </li>
-                        <li class="right">
-                            <a href="#" id="logout">
-                                <img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/logout-rounded-filled.png">
-                            </a>
-                        </li>
-                        <li class="right">
-                            <a href="/users/userprofile" id="profile"></a>
-                        </li>
-                    </div>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <div include-html="../../usermenu.html"></div>
-    <script>
-        includeHTML();
-    </script>
-    <div class="content">
-        <div class="asheuh-container">
-            <div class="my-container-fluid">
-                <div class="grid-6" id="myprofile"></div>
-                <div class="grid-5">
-                    <div class="span-col-4 Bio">
-                        <div class="bio">
-                            <h3>Most Answered Questions</h3>
-                            <div class="search">
+    <div id="loading" style="display:none;"></div>
+    <div id="loader"></div>
+    <div id="page" style="display:none;">
+        <header class="header">
+            <nav class="myNavbar">
+                <div>
+                    <ul class="myNav">
+                        <div class="my-container">
+                            <li>
+                                <a style="font-size: 22px; color: gold;" href="/questions"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
+                            </li>
+                            <li class="right">
+                                <a href="#" id="logout">
+                                    <img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/logout-rounded-filled.png">
+                                </a>
+                            </li>
+                            <li class="right">
+                                <a href="/users/userprofile" id="profile"></a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div include-html="../../usermenu.html"></div>
+        <script>
+            includeHTML();
+        </script>
+        <div class="content animate-bottom">
+            <div class="asheuh-container">
+                <div class="my-container-fluid">
+                    <div class="grid-6" id="myprofile"></div>
+                    <div class="grid-5">
+                        <div class="span-col-4 Bio">
+                            <div class="bio">
+                                <h3>Most Answered Questions</h3>
+                                <div class="search">
+                                </div>
+                                <hr>
+                                <div id="mostanswer"></div>
                             </div>
-                            <hr>
-                            <div id="mostanswer"></div>
                         </div>
                     </div>
                 </div>

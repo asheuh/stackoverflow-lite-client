@@ -11,10 +11,6 @@ class HomePage {
         }
         return false;
     }
-
-    UserLogout = () => {
-        auth.removeToken();
-    }
 }
 
 const home = new HomePage();
