@@ -26,6 +26,15 @@ class Authentication {
             redirect: window.location.replace("/auth/login");
         })
     }
+
+    showLoading = (state) => {
+        let element = document.getElementById('loading');
+        let el = document.getElementById('loader');
+        setInterval(() => {
+            state.isFetching &&
+                (element.innerHTML = el);
+        }, 0);
+    }
 }
 const auth = new Authentication();
 export default auth;

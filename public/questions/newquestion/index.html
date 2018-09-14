@@ -13,43 +13,47 @@
 </head>
 
 <body>
-    <header class="header">
-        <nav class="myNavbar">
-            <div>
-                <ul class="myNav">
-                    <div class="my-container">
-                        <li>
-                            <a style="font-size: 22px; color: gold;" href="/questions"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
-                        </li>
-                        <li class="right">
-                            <a href="#" id="logout">
-                                <img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/logout-rounded-filled.png">
-                            </a>
-                        </li>
-                        <li class="right">
-                            <a href="/users/userprofile" id="profile"></a>
-                        </li>
-                    </div>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <div include-html="../../menu.html"></div>
-    <script>
-        includeHTML();
-    </script>
-    <div class="content">
-        <div class="my-container">
-            <form class="non">
-                <div class="scontainer">
-                    <h1>Ask a Question</h1>
-                    <hr>
-                    <div id="msg"></div>
-                    <input type="text" placeholder="Title...." name="title" id="title" required>
-                    <textarea id="description" name="desc" placeholder="Description..." style="height:200px"></textarea>
-                    <a href="#" class="btn btn-primary" id="question" type="submit">Post</a>
+    <div id="loading" style="display:none;"></div>
+    <div id="loader"></div>
+    <div id="page" style="display:none;">
+        <header class="header">
+            <nav class="myNavbar">
+                <div>
+                    <ul class="myNav">
+                        <div class="my-container">
+                            <li>
+                                <a style="font-size: 22px; color: gold;" href="/questions"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
+                            </li>
+                            <li class="right">
+                                <a href="#" id="logout">
+                                    <img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/logout-rounded-filled.png">
+                                </a>
+                            </li>
+                            <li class="right">
+                                <a href="/users/userprofile" id="profile"></a>
+                            </li>
+                        </div>
+                    </ul>
                 </div>
-            </form>
+            </nav>
+        </header>
+        <div include-html="../../menu.html"></div>
+        <script>
+            includeHTML();
+        </script>
+        <div class="content animate-bottom">
+            <div class="my-container">
+                <form class="non">
+                    <div class="scontainer">
+                        <h1>Ask a Question</h1>
+                        <hr>
+                        <div id="msg"></div>
+                        <input type="text" placeholder="Title...." name="title" id="title" required>
+                        <textarea id="description" name="desc" placeholder="Description..." style="height:200px"></textarea>
+                        <a href="#" class="btn btn-primary" id="question" type="submit">Post</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     <script src="../../dist/question.bundle.js"></script>

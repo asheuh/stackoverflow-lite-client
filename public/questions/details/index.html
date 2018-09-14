@@ -13,58 +13,64 @@
 </head>
 
 <body>
-    <header class="header">
-        <nav class="myNavbar">
-            <div>
-                <ul class="myNav">
-                    <div class="my-container">
-                        <li>
-                            <a style="font-size: 22px; color: gold;" href="/questions"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
-                        </li>
-                        <li class="right">
-                            <a href="#" id="logout">
-                                <img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/logout-rounded-filled.png">
-                            </a>
-                        </li>
-                        <li class="right">
-                            <a href="/users/userprofile" id="profile"></a>
-                        </li>
-                    </div>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <div include-html=" ../../menu.html "></div>
-    <script>
-        includeHTML();
-    </script>
-    <div class="content grid-3" id="details"></div>
-    <div class="content grid-3">
-        <div class="span-col-2">
-            <ul class="qa">
-                <div class="d-container">
-                    <ul class="stats">
-                        <div class="new-container">
-                            <div class="first span-col-3" id="answs" style="padding-top: 3px; padding-bottom: 3px;"></div>
+    <div style="display:none;" id="loading"></div>
+    <div id="loader"></div>
+    <div id="page" style="display:none;">
+        <header class="header">
+            <nav class="myNavbar">
+                <div>
+                    <ul class="myNav">
+                        <div class="my-container">
+                            <li>
+                                <a style="font-size: 22px; color: gold;" href="/questions"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
+                            </li>
+                            <li class="right">
+                                <a href="#" id="logout">
+                                    <img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/logout-rounded-filled.png">
+                                </a>
+                            </li>
+                            <li class="right">
+                                <a href="/users/userprofile" id="profile"></a>
+                            </li>
                         </div>
                     </ul>
                 </div>
-            </ul>
-        </div>
-    </div>
-    <div class="content grid-3">
-        <div>
-            <div class="summary">
-                <a onclick="document.getElementById('id01').style.display='block'" class="btn btn-success" style="background-color: #D6EAF8; color: black;" href="#">Post your Answer</a>
-                <div id="id01" class="modal">
-                    <form class="modal-content animate" action="/action_page.php">
-                        <div id="msg"></div>
-                        <div class="scontainer">
-                            <label style="float:left" for="psw"><h2>Your Answer</h2></label>
-                            <textarea id="answer" name="messa" placeholder="Type your answer here..." style="height:200px"></textarea>
-                            <a href="#" id="send" class="btn btn-primary" type="submit">Submit</a>
+            </nav>
+        </header>
+        <div include-html=" ../../menu.html "></div>
+        <script>
+            includeHTML();
+        </script>
+        <div class="animate-bottom">
+            <div class="content grid-3" id="details"></div>
+            <div class="content grid-3">
+                <div class="span-col-2">
+                    <ul class="qa">
+                        <div class="d-container">
+                            <ul class="stats">
+                                <div class="new-container">
+                                    <div class="first span-col-3" id="answs" style="padding-top: 3px; padding-bottom: 3px;"></div>
+                                </div>
+                            </ul>
                         </div>
-                    </form>
+                    </ul>
+                </div>
+            </div>
+            <div class="content grid-3">
+                <div>
+                    <div class="summary">
+                        <a onclick="document.getElementById('id01').style.display='block'" class="btn btn-success" style="background-color: #D6EAF8; color: black;" href="#">Post your Answer</a>
+                        <div id="id01" class="modal">
+                            <form class="modal-content animate" action="/action_page.php">
+                                <div id="msg"></div>
+                                <div class="scontainer">
+                                    <label style="float:left" for="psw"><h2>Your Answer</h2></label>
+                                    <textarea id="answer" name="messa" placeholder="Type your answer here..." style="height:200px"></textarea>
+                                    <a href="#" id="send" class="btn btn-primary" type="submit">Submit</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

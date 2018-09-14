@@ -8,45 +8,60 @@ import temps from "../utils/templates";
             this.userProfile();
             this.mostAnsweredQuestion();
             this.myQuestions();
+            this.setState = this.setState.bind(this);
+            this.state = {
+                isFetching: false
+            };
+            auth.showLoading(this.state);
         };
 
-        userProfile = () => {
-            if (!auth.UserIsLoggedIn()) {
-                window.location.href = "/auth/login";
-            } else if (auth.UserIsLoggedIn()) {
-                api.get('/users/userprofile', auth.getToken())
-                    .then(res => res.json())
-                    .then(data => {
-                        if (Object.values(data).includes('Token has expired')) {
-                            auth.removeToken();
-                            window.location.reload();
-                        }
-                        temps.profilePageLink(data);
-                        let element = document.getElementById("myprofile");
-                        element.innerHTML = `
-                            <div>
-                                <img style="width: 200px; border-radius: 12em;" src="../../static/images/asheuh.jpeg">
-                            </div>
-                            <div class="span-col-5">
-                                <h1 style="margin-top: 1em">${data.data.name}(${data.data.username})</h1>
-                                <p>Email: <i>${data.data.email}</i></p>
-                                <p>Username: <i>${data.data.username}</i></p>
-                                <p>Name: <i> ${data.data.name}</i></p>
-                                <p>Registered on: <i>${data.data.registered_on}</i></p>
-                                <div class="social-icons">
-                                    <a href="#"><i style="color:blue;" class="me fab fa-facebook-square"></i></a>
-                                    <a href="#"><i style="color:#ffc838" class="me fab fa-instagram"></i></a>
-                                    <a href="#"><i style="color:#3498DB;" class="me fab fa-twitter-square"></i></a>
-                                    <a href="#"><i style="color:#21618C;" class="me fab fa-linkedin-in"></i></a>
-                                    <a href="#"><i style="color:red;" class="me fab fa-google-plus-square"></i></a>
-                                    <a href="#"><i style="color:black;" class="me fab fa-github-square"></i></a>
+        setState = (newState) => {
+            return Object.assign(this.state, newState);
+        }
 
+        userProfile = () => {
+            setTimeout(() => {
+                if (!auth.UserIsLoggedIn()) {
+                    window.location.href = "/auth/login";
+                } else if (auth.UserIsLoggedIn()) {
+                    this.setState({isFetching: true});
+                    api.get('/users/userprofile', auth.getToken())
+                        .then(res => res.json())
+                        .then(data => {
+                            this.setState({isFetching: false});
+                            document.getElementById("page").style.display = "block";
+                            document.getElementById("loader").style.display = "none";
+                            if (Object.values(data).includes('Token has expired')) {
+                                auth.removeToken();
+                                window.location.reload();
+                            }
+                            temps.profilePageLink(data);
+                            let element = document.getElementById("myprofile");
+                            element.innerHTML = `
+                                <div>
+                                    <img style="width: 200px; border-radius: 12em;" src="../../static/images/asheuh.jpeg">
                                 </div>
-                            </div>
-                        `;
-                    });
-                auth.logOut();
-            }
+                                <div class="span-col-5">
+                                    <h1 style="margin-top: 1em">${data.data.name}(${data.data.username})</h1>
+                                    <p>Email: <i>${data.data.email}</i></p>
+                                    <p>Username: <i>${data.data.username}</i></p>
+                                    <p>Name: <i> ${data.data.name}</i></p>
+                                    <p>Registered on: <i>${data.data.registered_on}</i></p>
+                                    <div class="social-icons">
+                                        <a href="#"><i style="color:blue;" class="me fab fa-facebook-square"></i></a>
+                                        <a href="#"><i style="color:#ffc838" class="me fab fa-instagram"></i></a>
+                                        <a href="#"><i style="color:#3498DB;" class="me fab fa-twitter-square"></i></a>
+                                        <a href="#"><i style="color:#21618C;" class="me fab fa-linkedin-in"></i></a>
+                                        <a href="#"><i style="color:red;" class="me fab fa-google-plus-square"></i></a>
+                                        <a href="#"><i style="color:black;" class="me fab fa-github-square"></i></a>
+
+                                    </div>
+                                </div>
+                            `;
+                        });
+                    auth.logOut();
+                }
+            });
         }
         mostAnsweredQuestion = () => {
             let el = document.getElementById("mostanswer");

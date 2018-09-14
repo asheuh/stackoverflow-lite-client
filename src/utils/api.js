@@ -1,6 +1,6 @@
 class Api {
     constructor() {
-        this.baseUrl = "http://stackoverflow-lite-heroku.herokuapp.com/api/v2";
+        this.baseUrl = "https://stackoverflow-lite-heroku.herokuapp.com/api/v2";
     }
 
     post(endpoint, data, token = null) {
