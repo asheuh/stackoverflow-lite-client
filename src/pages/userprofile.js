@@ -38,9 +38,6 @@ import temps from "../utils/templates";
                             temps.profilePageLink(data);
                             let element = document.getElementById("myprofile");
                             element.innerHTML = `
-                                <div>
-                                    <img style="width: 200px; border-radius: 12em;" src="../../static/images/asheuh.jpeg">
-                                </div>
                                 <div class="span-col-5">
                                     <h1 style="margin-top: 1em">${data.data.name}(${data.data.username})</h1>
                                     <p>Email: <i>${data.data.email}</i></p>
@@ -54,7 +51,6 @@ import temps from "../utils/templates";
                                         <a href="#"><i style="color:#21618C;" class="me fab fa-linkedin-in"></i></a>
                                         <a href="#"><i style="color:red;" class="me fab fa-google-plus-square"></i></a>
                                         <a href="#"><i style="color:black;" class="me fab fa-github-square"></i></a>
-
                                     </div>
                                 </div>
                             `;
@@ -68,6 +64,13 @@ import temps from "../utils/templates";
             api.get('/questions/mostanswers', auth.getToken())
                 .then(res => res.json())
                 .then(data => {
+                    if (data.message === "There are no questions") {
+                        el.innerHTML = `
+                            <div class="panel pale-green">
+                                <p>${data.message}, feel free to post your questions</p>
+                            </div>
+                            `;
+                    }
                     let result = data.data;
                     result.forEach(function(item) {
                         if (item) {
@@ -122,8 +125,16 @@ import temps from "../utils/templates";
             api.get('/questions/myquestions', auth.getToken())
                 .then(res => res.json())
                 .then(data => {
-                    let mydata = data.data;
+                    console.log(data)
                     let parentNode = document.getElementById('myquestion');
+                    if (data.message === "There are no questions in the db for you") {
+                        parentNode.innerHTML = `
+                            <div class="panel pale-green">
+                                <p>${data.message}, feel free to post your questions</p>
+                            </div>
+                            `;
+                    }
+                    let mydata = data.data;
                     mydata.forEach(function(item) {
                         let node = document.createElement('div');
                         node.classList.add('quiz');
@@ -146,9 +157,6 @@ import temps from "../utils/templates";
                                             <div class="summary">
                                                 <a style="background-color: #D6EAF8; color: black;" class="btn btn-primary" href="/questions/details/?${item.id}">view answers</a>
                                             </div>
-                                            <div class="summary">
-                                                <a href="#" class="btn btn-danger">Delete Question</a>
-                                            </div>
                                         </div>
                                     </div>
                                 </ul>
@@ -157,7 +165,7 @@ import temps from "../utils/templates";
                         `;
                         parentNode.appendChild(node);
                     });
-            });
+                });
         }
     }
     window.Profile = Profile;

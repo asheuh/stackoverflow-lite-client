@@ -24,6 +24,26 @@ class Api {
             }
         });
     }
+    delete(endpoint, token) {
+        return fetch(`${this.baseUrl}${endpoint}`, {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "content-type": "application/json"
+            }
+        });
+    }
+
+    patch(endpoint, token) {
+        return fetch(`${this.baseUrl}${endpoint}`, {
+            method: "PATCH",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "content-type": "application/json"
+            }
+        });
+    }
+
 }
 
 const api = new Api();

@@ -32,7 +32,7 @@ import temps from "../utils/templates";
                             temps.profilePageLink(data);
                         });
                     auth.logOut();
-
+                    let question = document.getElementById('question');
                     question.addEventListener("click", event => {
                         event.preventDefault();
                         const data = {
