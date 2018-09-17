@@ -51,7 +51,7 @@ class Authentication {
         let el = document.getElementById('submit');
         setInterval(() => {
             if (state.isFetching) {
-                el.innerHTML = "Creatinan account...";
+                el.innerHTML = "Creating an account...";
             } else {
                 el.innerHTML = "Register";
             }

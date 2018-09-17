@@ -65,7 +65,15 @@ import temps from "../utils/templates";
             api.get('/questions/mostanswers', auth.getToken())
                 .then(res => res.json())
                 .then(data => {
-                    if (data.message === "There are no questions") {
+                    let item = data.data;
+                    if (item.length === 0) {
+                        el.innerHTML = `
+                            <div class="panel pale-green">
+                                <p>There are no questions</p>
+                            </div>
+                        `;
+                    }
+                    else if (data.message === "There are no questions") {
                         el.innerHTML = `
                             <div class="panel pale-green">
                                 <p>${data.message}, feel free to post your questions</p>
