@@ -243,7 +243,7 @@ h3 {
 }
 
 .search input[type=text]:focus {
-    width: 100%;
+    width: 50%;
 }
 
 .content .quiz {

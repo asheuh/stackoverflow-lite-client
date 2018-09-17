@@ -116,7 +116,7 @@ import temps from "../utils/templates";
                                             if (data.message === "Question deleted successfully") {
                                                 window.location.href = "/questions";
                                             }
-                                            else if (data.message !== "Answer posted successfully") {
+                                            else {
                                                 alert(data.message);
                                             }
                                         });

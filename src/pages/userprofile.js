@@ -59,6 +59,7 @@ import temps from "../utils/templates";
                 }
             });
         }
+
         mostAnsweredQuestion = () => {
             let el = document.getElementById("mostanswer");
             api.get('/questions/mostanswers', auth.getToken())
