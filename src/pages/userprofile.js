@@ -59,6 +59,7 @@ import temps from "../utils/templates";
                 }
             });
         }
+
         mostAnsweredQuestion = () => {
             let el = document.getElementById("mostanswer");
             api.get('/questions/mostanswers', auth.getToken())
@@ -94,9 +95,6 @@ import temps from "../utils/templates";
                                                 </div>
                                                 <div class="summary">
                                                     <a style="background-color: #D6EAF8; color: black;" class="btn btn-primary" href="/questions/details/?${item.id}">view answers</a>
-                                                </div>
-                                                <div class="summary">
-                                                    <a href="#" class="btn btn-danger">Delete Question</a>
                                                 </div>
                                             </div>
                                         </div>

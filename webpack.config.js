@@ -9,7 +9,8 @@ module.exports = {
         allquiz: "./src/pages/allquiz.js",
         userprofile: "./src/pages/userprofile.js",
         answer: "./src/pages/answers.js",
-        home: "./src/pages/homepage.js"
+        home: "./src/pages/homepage.js",
+        search: "./src/pages/search.js"
     },
     output: {
         path: path.resolve(__dirname, "public/dist"),

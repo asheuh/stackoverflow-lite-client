@@ -114,9 +114,9 @@ import temps from "../utils/templates";
                                         .then(res => res.json())
                                         .then(data => {
                                             if (data.message === "Question deleted successfully") {
-                                                window.location.reload();
+                                                window.location.href = "/questions";
                                             }
-                                            else if (data.message !== "Answer posted successfully") {
+                                            else {
                                                 alert(data.message);
                                             }
                                         });

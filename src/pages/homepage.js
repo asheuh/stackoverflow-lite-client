@@ -9,7 +9,6 @@ class HomePage {
         if (auth.UserIsLoggedIn()) {
             window.location.href = "/questions";
         }
-        return false;
     }
 }
 

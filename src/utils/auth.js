@@ -35,6 +35,29 @@ class Authentication {
                 (element.innerHTML = el);
         }, 0);
     }
+
+    showloginLoader = (state) => {
+        let el = document.getElementById('submit');
+        setInterval(() => {
+            if (state.isFetching) {
+                el.innerHTML = "Signing in...";
+            } else {
+                el.innerHTML = "Signin";
+            }
+        }, 0);
+    }
+
+    showregisterLoader = (state) => {
+        let el = document.getElementById('submit');
+        setInterval(() => {
+            if (state.isFetching) {
+                el.innerHTML = "Creatinan account...";
+            } else {
+                el.innerHTML = "Register";
+            }
+        }, 0);
+    }
+
 }
 const auth = new Authentication();
 export default auth;

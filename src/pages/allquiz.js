@@ -7,7 +7,8 @@ import temps from "../utils/templates";
         constructor() {
             this.setState = this.setState.bind(this);
             this.state = {
-                isFetching: false
+                isFetching: false,
+                query: ''
             };
             this.fetchQuestions();
             auth.showLoading(this.state);
