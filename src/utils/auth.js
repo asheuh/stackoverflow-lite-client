@@ -1,25 +1,25 @@
 class Authentication {
 
-    UserIsLoggedIn = () => {
+    UserIsLoggedIn() {
         const secretkey = this.getToken()
         if (secretkey === null || secretkey === 'undefined') {
             return false;
         }
         return true;
     }
-    setToken = (token) => {
+    setToken(token) {
         return localStorage.setItem('access_token', token);
     }
 
-    getToken = () => {
+    getToken() {
         return localStorage.getItem('access_token');
     }
 
-    removeToken = () => {
+    removeToken() {
         return localStorage.removeItem('access_token');
     }
 
-    logOut = () => {
+    logOut() {
         let element = document.getElementById("logout");
         logout.addEventListener("click", event => {
             this.removeToken();
@@ -27,7 +27,7 @@ class Authentication {
         })
     }
 
-    showLoading = (state) => {
+    showLoading(state) {
         let element = document.getElementById('loading');
         let el = document.getElementById('loader');
         setInterval(() => {
@@ -36,7 +36,7 @@ class Authentication {
         }, 0);
     }
 
-    showloginLoader = (state) => {
+    showloginLoader(state) {
         let el = document.getElementById('submit');
         setInterval(() => {
             if (state.isFetching) {
@@ -47,7 +47,7 @@ class Authentication {
         }, 0);
     }
 
-    showregisterLoader = (state) => {
+    showregisterLoader(state) {
         let el = document.getElementById('submit');
         setInterval(() => {
             if (state.isFetching) {
