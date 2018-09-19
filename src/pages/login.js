@@ -1,24 +1,24 @@
 import api from "../utils/api";
 import auth from "../utils/auth";
 
-(function(window) {
-    class Login {
-        constructor() {
-            this.setState = this.setState.bind(this);
-            this.handleLogin = this.handleLogin.bind(this);
-            this.state = {
-                isFetching: false
-            };
-            auth.showloginLoader(this.state);
-            this.handleLogin();
-        }
+class Login {
+    constructor() {
+        this.setState = this.setState.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
+        this.state = {
+            isFetching: false
+        };
+        auth.showloginLoader(this.state);
+        this.handleLogin();
+    }
 
-        setState = (newState) => {
-            return Object.assign(this.state, newState);
-        }
+    setState(newState) {
+        return Object.assign(this.state, newState);
+    }
 
-        handleLogin = () => {
-            let login = document.getElementById('submit');
+    handleLogin() {
+        let login = document.getElementById('submit');
+        if (login) {
             login.addEventListener("click", event => {
                 event.preventDefault();
                 this.setState({isFetching: true});
@@ -27,7 +27,9 @@ import auth from "../utils/auth";
                     password: password.value
                 };
                 api.post("/auth/login", data)
-                    .then(res => res.json())
+                    .then(res => {
+                        return res.json();
+                    })
                     .catch(error => console.error('Error ' + error))
                     .then(data => {
                         this.setState({isFetching: false});
@@ -42,12 +44,12 @@ import auth from "../utils/auth";
                             err.style.color = "red";
                             err.innerHTML = data.message;
                         }
+                        return data.message;
                     });
             });
         }
     }
-    window.Login = Login;
-}(window));
+}
 
 const login = new Login();
 export default login;
