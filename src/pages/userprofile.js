@@ -87,7 +87,7 @@ import temps from "../utils/templates";
                             node.classList.add('quiz');
                             node.innerHTML = `
                             <ul class="qa">
-                                <p class="asheuh">Asked by ${item.created_by} on ${item.date_created}</p>
+                                <p class="asheuh">Asked by me on ${item.date_created}</p>
                                 <li class="d">
                                     <a href="/questions/details/?${item.id}">${item.title}</a>
                                 </li>
@@ -146,7 +146,7 @@ import temps from "../utils/templates";
                         node.classList.add('quiz');
                         node.innerHTML = `
                         <ul class="qa">
-                            <p class="asheuh">Asked by ${item.created_by} on ${item.date_created}</p>
+                            <p class="asheuh">Asked by me on ${item.date_created}</p>
                             <li class="d">
                                 <a href="/questions/details/?${item.id}">${item.title}</a>
                             </li>
