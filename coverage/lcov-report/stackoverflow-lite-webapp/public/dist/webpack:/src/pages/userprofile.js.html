@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for stackoverflow-lite-webapp/public/dist/webpack:/src/pages/userprofile.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">All files</a> / <a href="index.html">stackoverflow-lite-webapp/public/dist/webpack:/src/pages</a> userprofile.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/66</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/65</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import api from "../utils/api";</span>
+<span class="cstat-no" title="statement not covered" >import auth from "../utils/auth";</span>
+<span class="cstat-no" title="statement not covered" >import temps from "../utils/templates";</span>
+&nbsp;
+(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function(</span>window) {</span>
+    class Profile {
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >        constructor() <span class="cstat-no" title="statement not covered" ></span>{</span></span>
+<span class="cstat-no" title="statement not covered" >            this.userProfile();</span>
+<span class="cstat-no" title="statement not covered" >            this.mostAnsweredQuestion();</span>
+<span class="cstat-no" title="statement not covered" >            this.myQuestions();</span>
+<span class="cstat-no" title="statement not covered" >            this.setState = this.setState.bind(this);</span>
+<span class="cstat-no" title="statement not covered" >            this.state = {</span>
+                isFetching: false
+            };
+<span class="cstat-no" title="statement not covered" >            auth.showLoading(this.state);</span>
+        };
+&nbsp;
+        setState = <span class="fstat-no" title="function not covered" >(</span>newState) =&gt; {
+<span class="cstat-no" title="statement not covered" >            return Object.assign(this.state, newState);</span>
+        }
+&nbsp;
+        userProfile = <span class="fstat-no" title="function not covered" >() =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >            setTimeout(<span class="fstat-no" title="function not covered" >() =&gt; </span>{</span>
+<span class="cstat-no" title="statement not covered" >                if (!auth.UserIsLoggedIn()) {</span>
+<span class="cstat-no" title="statement not covered" >                    window.location.href = "/auth/login";</span>
+                } else <span class="cstat-no" title="statement not covered" >if (auth.UserIsLoggedIn()) {</span>
+<span class="cstat-no" title="statement not covered" >                    this.setState({isFetching: true});</span>
+<span class="cstat-no" title="statement not covered" >                    api.get('/users/userprofile', auth.getToken())</span>
+                        .then(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >res =&gt; res.json())</span></span>
+                        .then(<span class="fstat-no" title="function not covered" >data =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >                            this.setState({isFetching: false});</span>
+<span class="cstat-no" title="statement not covered" >                            document.getElementById("page").style.display = "block";</span>
+<span class="cstat-no" title="statement not covered" >                            document.getElementById("loader").style.display = "none";</span>
+<span class="cstat-no" title="statement not covered" >                            if (Object.values(data).includes('Token has expired')) {</span>
+<span class="cstat-no" title="statement not covered" >                                auth.removeToken();</span>
+<span class="cstat-no" title="statement not covered" >                                window.location.reload();</span>
+                            }
+<span class="cstat-no" title="statement not covered" >                            temps.profilePageLink(data);</span>
+                            let element = <span class="cstat-no" title="statement not covered" >document.getElementById("myprofile");</span>
+<span class="cstat-no" title="statement not covered" >                            element.innerHTML = `</span>
+                                &lt;div class="span-col-5"&gt;
+                                    &lt;h1 style="margin-top: 1em"&gt;${data.data.name}(${data.data.username})&lt;/h1&gt;
+                                    &lt;p&gt;Email: &lt;i&gt;${data.data.email}&lt;/i&gt;&lt;/p&gt;
+                                    &lt;p&gt;Username: &lt;i&gt;${data.data.username}&lt;/i&gt;&lt;/p&gt;
+                                    &lt;p&gt;Name: &lt;i&gt; ${data.data.name}&lt;/i&gt;&lt;/p&gt;
+                                    &lt;p&gt;Registered on: &lt;i&gt;${data.data.registered_on}&lt;/i&gt;&lt;/p&gt;
+                                    &lt;div class="social-icons"&gt;
+                                        &lt;a href="#"&gt;&lt;i style="color:blue;" class="me fab fa-facebook-square"&gt;&lt;/i&gt;&lt;/a&gt;
+                                        &lt;a href="#"&gt;&lt;i style="color:#ffc838" class="me fab fa-instagram"&gt;&lt;/i&gt;&lt;/a&gt;
+                                        &lt;a href="#"&gt;&lt;i style="color:#3498DB;" class="me fab fa-twitter-square"&gt;&lt;/i&gt;&lt;/a&gt;
+                                        &lt;a href="#"&gt;&lt;i style="color:#21618C;" class="me fab fa-linkedin-in"&gt;&lt;/i&gt;&lt;/a&gt;
+                                        &lt;a href="#"&gt;&lt;i style="color:red;" class="me fab fa-google-plus-square"&gt;&lt;/i&gt;&lt;/a&gt;
+                                        &lt;a href="#"&gt;&lt;i style="color:black;" class="me fab fa-github-square"&gt;&lt;/i&gt;&lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            `;
+                        });
+<span class="cstat-no" title="statement not covered" >                    auth.logOut();</span>
+                }
+            });
+        }
+&nbsp;
+        mostAnsweredQuestion = <span class="fstat-no" title="function not covered" >() =&gt; </span>{
+            let el = <span class="cstat-no" title="statement not covered" >document.getElementById("mostanswer");</span>
+<span class="cstat-no" title="statement not covered" >            api.get('/questions/mostanswers', auth.getToken())</span>
+                .then(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >res =&gt; res.json())</span></span>
+                .then(<span class="fstat-no" title="function not covered" >data =&gt; </span>{
+                    let item = <span class="cstat-no" title="statement not covered" >data.data;</span>
+<span class="cstat-no" title="statement not covered" >                    if (item.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >                        el.innerHTML = `</span>
+                            &lt;div class="panel pale-green"&gt;
+                                &lt;p&gt;There are no questions&lt;/p&gt;
+                            &lt;/div&gt;
+                        `;
+                    }
+                    else <span class="cstat-no" title="statement not covered" >if (data.message === "There are no questions") {</span>
+<span class="cstat-no" title="statement not covered" >                        el.innerHTML = `</span>
+                            &lt;div class="panel pale-green"&gt;
+                                &lt;p&gt;${data.message}, feel free to post your questions&lt;/p&gt;
+                            &lt;/div&gt;
+                            `;
+                    }
+                    let result = <span class="cstat-no" title="statement not covered" >data.data;</span>
+<span class="cstat-no" title="statement not covered" >                    result.forEach(<span class="fstat-no" title="function not covered" >function(</span>item) {</span>
+<span class="cstat-no" title="statement not covered" >                        if (item) {</span>
+                            let node = <span class="cstat-no" title="statement not covered" >document.createElement('div');</span>
+<span class="cstat-no" title="statement not covered" >                            node.classList.add('quiz');</span>
+<span class="cstat-no" title="statement not covered" >                            node.innerHTML = `</span>
+                            &lt;ul class="qa"&gt;
+                                &lt;p class="asheuh"&gt;Asked by ${item.created_by} on ${item.date_created}&lt;/p&gt;
+                                &lt;li class="d"&gt;
+                                    &lt;a href="/questions/details/?${item.id}"&gt;${item.title}&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;div class="d-container"&gt;
+                                    &lt;ul class="stats"&gt;
+                                        &lt;div class="new-container"&gt;
+                                            &lt;h2&gt;Question summary&lt;/h2&gt;
+                                            &lt;p&gt;${item.description}&lt;/p&gt;
+                                            &lt;div class="grid-3"&gt;
+                                                &lt;div class="summary"&gt;
+                                                    &lt;h4&gt;Total answers&lt;/h4&gt;
+                                                    &lt;h5&gt;&lt;a href="#"&gt;${item.answers}&lt;/a&gt;&lt;/h5&gt;
+                                                &lt;/div&gt;
+                                                &lt;div class="summary"&gt;
+                                                    &lt;a style="background-color: #D6EAF8; color: black;" class="btn btn-primary" href="/questions/details/?${item.id}"&gt;view answers&lt;/a&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/ul&gt;
+                            `;
+<span class="cstat-no" title="statement not covered" >                            el.appendChild(node);</span>
+                        }
+                    });
+            });
+        }
+&nbsp;
+        myQuestions = <span class="fstat-no" title="function not covered" >() =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >            if(!auth.UserIsLoggedIn()) {</span>
+<span class="cstat-no" title="statement not covered" >                window.location.href = "/auth/login";</span>
+            }
+            else <span class="cstat-no" title="statement not covered" >if (auth.UserIsLoggedIn()) {</span>
+<span class="cstat-no" title="statement not covered" >                api.get('/users/userprofile', auth.getToken())</span>
+                    .then(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >res =&gt; res.json())</span></span>
+                    .then(<span class="fstat-no" title="function not covered" >data =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >                        temps.profilePageLink(data);</span>
+                })
+<span class="cstat-no" title="statement not covered" >                auth.logOut();</span>
+            }
+<span class="cstat-no" title="statement not covered" >            api.get('/questions/myquestions', auth.getToken())</span>
+                .then(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >res =&gt; res.json())</span></span>
+                .then(<span class="fstat-no" title="function not covered" >data =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >                    console.log(data)</span>
+                    let parentNode = <span class="cstat-no" title="statement not covered" >document.getElementById('myquestion');</span>
+<span class="cstat-no" title="statement not covered" >                    if (data.message === "There are no questions in the db for you") {</span>
+<span class="cstat-no" title="statement not covered" >                        parentNode.innerHTML = `</span>
+                            &lt;div class="panel pale-green"&gt;
+                                &lt;p&gt;${data.message}, feel free to post your questions&lt;/p&gt;
+                            &lt;/div&gt;
+                            `;
+                    }
+                    let mydata = <span class="cstat-no" title="statement not covered" >data.data;</span>
+<span class="cstat-no" title="statement not covered" >                    mydata.forEach(<span class="fstat-no" title="function not covered" >function(</span>item) {</span>
+                        let node = <span class="cstat-no" title="statement not covered" >document.createElement('div');</span>
+<span class="cstat-no" title="statement not covered" >                        node.classList.add('quiz');</span>
+<span class="cstat-no" title="statement not covered" >                        node.innerHTML = `</span>
+                        &lt;ul class="qa"&gt;
+                            &lt;p class="asheuh"&gt;Asked by ${item.created_by} on ${item.date_created}&lt;/p&gt;
+                            &lt;li class="d"&gt;
+                                &lt;a href="/questions/details/?${item.id}"&gt;${item.title}&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;div class="d-container"&gt;
+                                &lt;ul class="stats"&gt;
+                                    &lt;div class="new-container"&gt;
+                                        &lt;h2&gt;Question summary&lt;/h2&gt;
+                                        &lt;p&gt;${item.description}&lt;/p&gt;
+                                        &lt;div class="grid-3"&gt;
+                                            &lt;div class="summary"&gt;
+                                                &lt;h4&gt;Total answers&lt;/h4&gt;
+                                                &lt;h5&gt;&lt;a href="#"&gt;${item.answers}&lt;/a&gt;&lt;/h5&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class="summary"&gt;
+                                                &lt;a style="background-color: #D6EAF8; color: black;" class="btn btn-primary" href="/questions/details/?${item.id}"&gt;view answers&lt;/a&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/ul&gt;
+                        `;
+<span class="cstat-no" title="statement not covered" >                        parentNode.appendChild(node);</span>
+                    });
+                });
+        }
+    }
+<span class="cstat-no" title="statement not covered" >    window.Profile = Profile;</span>
+}(window));
+&nbsp;
+const profile = <span class="cstat-no" title="statement not covered" >new Profile();</span>
+export default profile;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Sep 20 2018 03:09:33 GMT+0300 (EAT)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

@@ -80,7 +80,7 @@ import temps from "../utils/templates";
                                     <hr>
                                     <div class="quiz">
                                         <ul class="qa">
-                                            <p class="asheuh">Posted by ${data.data.question.id} on ${data.data.question.date_created}</p>
+                                            <p class="asheuh">Posted on ${data.data.question.date_created}</p>
                                             <li class="no_dropdown">
                                                 <h3>${data.data.question.title}</h3>
                                             </li>
