@@ -16,6 +16,7 @@ import temps from "../utils/templates";
                 upvoted: false,
                 downvoted: false
             };
+            this.computeUpvoteDownvote();
             auth.showLoading(this.state);
         }
 
@@ -29,19 +30,18 @@ import temps from "../utils/templates";
             this.state.upvoted = this.state.upvoted;
         }
 
-        computeUpvoteDownvote = () => {
-            if (this.state.upvoted) {
-                let elemt = document.getElementById('up');
+        computeUpvote = () => {
+            console.error("gsgdusgdhsgdhshduh")
+            let updown = document.getElementById('up');
+            updown.addEventListener('click', event => {
+                event.preventDefault();
                 api.patch(`/questions/${this.id}/answers/${this.id}/upvote`, auth.getToken())
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
                     });
-            }else if (this.state.downvoted) {
-                return 2 - 1;
-            }else {
-                return 4;
-            }
+            });
+            this.handleUpvote();
         }
 
         setState = (newState) => {
@@ -137,8 +137,10 @@ import temps from "../utils/templates";
                                             <div class="panel pale-green">
                                                 <p class="asheuh">Answered by ${item.owner} on ${item.date_created}</p>
                                                 <p>${item.answer}</p>
-                                                <button style="background-color: #D6EAF8; color: black;" class="btn btn-success"><i class="fas fa-arrow-alt-circle-up"> ${item.votes}</i> Upvote</button>
-                                                <button style="background-color: #D6EAF8; color: black;" class="btn btn-success"><i class="fas fa-arrow-alt-circle-down"></i> Downvote</button>
+                                                <div class="updown">
+                                                    <a href="#" id="up" style="background-color: #D6EAF8; color: black;" class="btn btn-success"><i class="fas fa-arrow-alt-circle-up"> ${item.votes}</i> Upvote</a>
+                                                    <a href="#" id="down" style="background-color: #D6EAF8; color: black;" class="btn btn-success"><i class="fas fa-arrow-alt-circle-down"></i> Downvote</a>
+                                                </div>
                                             </div>
 
                                         `;

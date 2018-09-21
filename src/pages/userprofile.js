@@ -131,7 +131,6 @@ import temps from "../utils/templates";
             api.get('/questions/myquestions', auth.getToken())
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
                     let parentNode = document.getElementById('myquestion');
                     if (data.message === "There are no questions in the db for you") {
                         parentNode.innerHTML = `
