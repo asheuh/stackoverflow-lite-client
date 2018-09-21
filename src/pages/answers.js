@@ -147,8 +147,8 @@ import temps from "../utils/templates";
                                                 <p class="asheuh">Answered by ${item.owner} on ${item.date_created}</p>
                                                 <p>${item.answer}</p>
                                                 <div class="updown">
-                                                    <a href="#" data-id="${item.id}" style="background-color: #D6EAF8; color: black;" class="btn btn-success upvotebtn"><i class="fas fa-arrow-alt-circle-up"> ${item.votes}</i> Upvote</a>
-                                                    <a href="#" data-id="${item.id}" style="background-color: #D6EAF8; color: black;" class="btn btn-success downvotebtn"><i class="fas fa-arrow-alt-circle-down"></i> Downvote</a>
+                                                    <button data-id="${item.id}" style="background-color: #D6EAF8; color: black;" class="btn btn-success upvotebtn"><i class="fas fa-arrow-alt-circle-up"> ${item.votes}</i> Upvote</button>
+                                                    <button data-id="${item.id}" style="background-color: #D6EAF8; color: black;" class="btn btn-success downvotebtn"><i class="fas fa-arrow-alt-circle-down"></i> Downvote</button>
                                                 </div>
                                             </div>
 
