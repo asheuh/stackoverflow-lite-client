@@ -9,39 +9,48 @@ import temps from "../utils/templates";
             this.showDetails();
             this.postAnswer();
             this.setState = this.setState.bind(this);
-            this.handleUpvote = this.handleUpvote.bind(this);
-            this.handleDownvote = this.handleDownvote.bind(this);
             this.state = {
                 isFetching: false,
-                upvoted: false,
+                upvoted: true,
                 downvoted: false
             };
-            this.computeUpvoteDownvote();
             auth.showLoading(this.state);
         }
 
-        handleUpvote = () => {
-            this.state.upvoted = !this.state.upvoted;
-            this.state.downvoted = this.state.downvoted;
+        handleVotes = (target, type, callback) => {
+            target.addEventListener(type, callback);
         }
 
-        handleDownvote = () => {
-            this.state.downvoted = !this.state.downvoted;
-            this.state.upvoted = this.state.upvoted;
+        sendUpVote = (el) => {
+            let answer_id = el.getAttribute('data-id');
+            api.patch(`/questions/${this.id}/answers/${answer_id}/upvote`, auth.getToken())
+                .then(res => res.json())
+                .then(data => {
+                    window.location.reload();
+                });
         }
 
-        computeUpvote = () => {
-            console.error("gsgdusgdhsgdhshduh")
-            let updown = document.getElementById('up');
-            updown.addEventListener('click', event => {
-                event.preventDefault();
-                api.patch(`/questions/${this.id}/answers/${this.id}/upvote`, auth.getToken())
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                    });
+        sendDownVote = (el) => {
+            let answer_id = el.getAttribute('data-id');
+            api.patch(`/questions/${this.id}/answers/${answer_id}/downvote`, auth.getToken())
+                .then(res => res.json())
+                .then(data => {
+                    window.location.reload();
+                });
+        }
+
+        computeUpvote = (answer_id) => {
+            let upvote = document.querySelectorAll('.upvotebtn');
+            let downvote = document.querySelectorAll('.downvotebtn');
+
+            Object.values(upvote).map((el, index) => {
+                this.handleVotes(upvote[index], 'click', () => {
+                    this.sendUpVote(upvote[index]);
+                });
+                this.handleVotes(downvote[index], 'click', () => {
+                    this.sendDownVote(downvote[index]);
+                });
             });
-            this.handleUpvote();
         }
 
         setState = (newState) => {
@@ -138,8 +147,8 @@ import temps from "../utils/templates";
                                                 <p class="asheuh">Answered by ${item.owner} on ${item.date_created}</p>
                                                 <p>${item.answer}</p>
                                                 <div class="updown">
-                                                    <a href="#" id="up" style="background-color: #D6EAF8; color: black;" class="btn btn-success"><i class="fas fa-arrow-alt-circle-up"> ${item.votes}</i> Upvote</a>
-                                                    <a href="#" id="down" style="background-color: #D6EAF8; color: black;" class="btn btn-success"><i class="fas fa-arrow-alt-circle-down"></i> Downvote</a>
+                                                    <a href="#" data-id="${item.id}" style="background-color: #D6EAF8; color: black;" class="btn btn-success upvotebtn"><i class="fas fa-arrow-alt-circle-up"> ${item.votes}</i> Upvote</a>
+                                                    <a href="#" data-id="${item.id}" style="background-color: #D6EAF8; color: black;" class="btn btn-success downvotebtn"><i class="fas fa-arrow-alt-circle-down"></i> Downvote</a>
                                                 </div>
                                             </div>
 
@@ -148,6 +157,7 @@ import temps from "../utils/templates";
                                     }
                                 });
                             }
+                            this.computeUpvote();
                         });
                 }
             });
