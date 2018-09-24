@@ -5,19 +5,20 @@ import temps from "../utils/templates";
 (function(window) {
     class Search {
         constructor() {
-            this.data = document.querySelector('.searchForm-input').value;
-            this.searchQuestion(this.data);
+            this.searchQuestion();
         }
-        searchQuestion = (item) => {
-            let form = document.querySelector('.searchForm');
-            form.addEventListener('submit', event => {
+        searchQuestion = () => {
+            let searchNode = document.getElementById('search');
+            searchNode.addEventListener('keyup', event => {
                 event.preventDefault();
-                let selectQuery = item;
+                let selectQuery = searchNode.value;
                 let endpoint = `/questions/search/${selectQuery}`;
-                console.log(selectQuery)
+                auth.loader();
                 api.get(endpoint, auth.getToken())
                     .then(res => res.json())
                     .then(data => {
+                        let loadNode = document.getElementById('cont');
+                        loadNode.innerHTML = '';
                         let results = data.data;
                         let searchResults = document.getElementById('msg');
                         searchResults.innerHTML = '';

@@ -4,7 +4,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">-->
     <link rel="stylesheet" href="../../static/css/asheuh-framework.css" type="text/css">
     <link rel="shortcut icon" href="../../static/images/H-logo.ico">
     <link rel="stylesheet" href="../../static/css/style.css" type="text/css">
@@ -15,26 +15,24 @@
 <body>
     <div style="display:none;" id="loading"></div>
     <div id="loader"></div>
-    <div id="page" style="display:none;">
+    <div id="page" style="display: none;">
         <header class="header">
             <nav class="myNavbar">
-                <div>
-                    <ul class="myNav">
-                        <div class="my-container">
-                            <li>
-                                <a style="font-size: 22px; color: gold;" href="/questions"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
-                            </li>
-                            <li class="right">
-                                <a href="#" id="logout">
-                                    <img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/logout-rounded-filled.png">
-                                </a>
-                            </li>
-                            <li class="right">
-                                <a href="/users/userprofile" id="profile"></a>
-                            </li>
-                        </div>
-                    </ul>
-                </div>
+                <ul class="myNav">
+                    <div class="my-container">
+                        <li>
+                            <a style="font-size: 22px; color: gold;" href="/questions"><span class="smallerFont">Stackoverflow</span>LITE<sup><small>2018</small></sup></a>
+                        </li>
+                        <li class="right">
+                            <a href="#" id="logout">
+                                <img class="image" style="border-radius: 50%; width: 20px; height: 20px;" src="../../static/images/logout-rounded-filled.png">
+                            </a>
+                        </li>
+                        <li class="right">
+                            <a href="/users/userprofile" id="profile"></a>
+                        </li>
+                    </div>
+                </ul>
             </nav>
         </header>
         <div include-html="../../menu.html"></div>

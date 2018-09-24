@@ -36,6 +36,15 @@ class Authentication {
         }, 0);
     }
 
+    loader() {
+        let markup = "<h1>Searching ...</h1>";
+        let container = document.createElement('div');
+        let loadNode = document.getElementById('cont');
+        container.innerHTML = markup;
+        console.log(markup)
+        loadNode.appendChild(container);
+    }
+
     showloginLoader(state) {
         let el = document.getElementById('submit');
         setInterval(() => {

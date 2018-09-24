@@ -21,6 +21,7 @@ Navbar
     position: fixed;
     background-color: #FAFAFA;
     padding: 0;
+    top: 0;
     height: 53px;
     overflow: hidden;
     border-bottom: 1px solid #f1f1f1;
