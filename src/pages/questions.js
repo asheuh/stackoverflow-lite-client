@@ -11,6 +11,7 @@ import temps from "../utils/templates";
             };
             this.postQuestion();
             auth.showLoading(this.state);
+            auth.showPostLoader(this.state);
         }
 
         setState = (newState) => {
@@ -34,6 +35,7 @@ import temps from "../utils/templates";
                     auth.logOut();
                     let question = document.getElementById('question');
                     question.addEventListener("click", event => {
+                        this.setState({isFetching: true});
                         event.preventDefault();
                         const data = {
                             title: title.value,
@@ -44,6 +46,7 @@ import temps from "../utils/templates";
                             .then(res => res.json())
                             .catch(error => console.error('Error ' + error))
                             .then(data => {
+                                this.setState({isFetching: false});
                                 if (data.message === "Question posted successfully") {
                                     let status = document.getElementById('msg')
                                     status.style.backgroundColor = "#F0FAEE";

@@ -7,8 +7,8 @@
     "start": "webpack --watch & live-server public/",
     "watch": "webpack --watch",
     "build": "webpack --config webpack.config.js",
-    "test": "babel-node spec/runSpec.js",
-    "coveralls": "istanbul cover babel-node spec/runSpec.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "test": "jasmine-node spec/runSpec.js",
+    "coveralls": "istanbul cover jasmine-node spec/runSpec.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "engines": {
     "node": "8.11.1",

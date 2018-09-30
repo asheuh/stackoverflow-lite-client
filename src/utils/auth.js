@@ -67,6 +67,17 @@ class Authentication {
         }, 0);
     }
 
+    showPostLoader(state) {
+        let el = document.getElementById('question');
+        setInterval(() => {
+            if (state.isFetching) {
+                el.innerHTML = "Posting a question...";
+            } else {
+                el.innerHTML = "Post";
+            }
+        }, 0);
+    }
+
 }
 const auth = new Authentication();
 export default auth;
