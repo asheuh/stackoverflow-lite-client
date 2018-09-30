@@ -33,7 +33,7 @@ import temps from "../utils/templates";
                             temps.profilePageLink(data);
                         });
                     auth.logOut();
-                    let question = document.querySelector('.post_btn');
+                    let question = document.querySelector('.newquestion');
                     question.addEventListener("click", event => {
                         this.setState({isFetching: true});
                         event.preventDefault();
