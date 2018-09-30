@@ -68,7 +68,7 @@ class Authentication {
     }
 
     showPostLoader(state) {
-        let el = document.getElementById('question');
+        let el = document.querySelector('.newquestion');
         setInterval(() => {
             if (state.isFetching) {
                 el.innerHTML = "Posting a question...";
