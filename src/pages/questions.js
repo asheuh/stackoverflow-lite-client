@@ -9,9 +9,9 @@ import temps from "../utils/templates";
             this.state = {
                 isFetching: false
             };
+            auth.showPostLoader(this.state);
             this.postQuestion();
             auth.showLoading(this.state);
-            auth.showPostLoader(this.state);
         }
 
         setState = (newState) => {
