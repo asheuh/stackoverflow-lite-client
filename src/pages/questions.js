@@ -25,7 +25,7 @@ import temps from "../utils/templates";
                 } else if (auth.UserIsLoggedIn()) {
                     this.setState({isFetching: true});
                     api.get('/users/userprofile', auth.getToken())
-                        .then(res => res.json())
+                        .then(response => response.json())
                         .then(data => {
                             this.setState({isFetching: false});
                             document.getElementById("page").style.display = "block";
@@ -43,7 +43,7 @@ import temps from "../utils/templates";
                         };
 
                         api.post("/questions/newquestion", data, auth.getToken())
-                            .then(res => res.json())
+                            .then(response => response.json())
                             .catch(error => console.error('Error ' + error))
                             .then(data => {
                                 this.setState({isFetching: false});

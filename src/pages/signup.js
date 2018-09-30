@@ -31,7 +31,7 @@ import auth from "../utils/auth";
                 this.setState({isFetching: true});
                 api
                     .post("/auth/register", data)
-                    .then(res => res.json())
+                    .then(response => response.json())
                     .catch(error => console.error('Error ' + error))
                     .then(data => {
                         this.setState({isFetching: false});

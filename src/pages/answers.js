@@ -24,7 +24,7 @@ import temps from "../utils/templates";
         sendUpVote = (el) => {
             let answer_id = el.getAttribute('data-id');
             api.patch(`/questions/${this.id}/answers/${answer_id}/upvote`, auth.getToken())
-                .then(res => res.json())
+                .then(response => response.json())
                 .then(data => {
                     window.location.reload();
                 });
@@ -33,7 +33,7 @@ import temps from "../utils/templates";
         sendDownVote = (el) => {
             let answer_id = el.getAttribute('data-id');
             api.patch(`/questions/${this.id}/answers/${answer_id}/downvote`, auth.getToken())
-                .then(res => res.json())
+                .then(response => response.json())
                 .then(data => {
                     window.location.reload();
                 });
@@ -64,7 +64,7 @@ import temps from "../utils/templates";
                 } else if (auth.UserIsLoggedIn()) {
                     this.setState({isFetching: true});
                     api.get('/users/userprofile', auth.getToken())
-                        .then(res => res.json())
+                        .then(response => response.json())
                         .then(data => {
                             this.setState({isFetching: false});
                             document.getElementById("page").style.display = "block";
@@ -76,7 +76,7 @@ import temps from "../utils/templates";
                     let element = document.getElementById('details');
                     let el = document.getElementById('answs');
                     api.get(`/questions/details/${this.id}`, auth.getToken())
-                        .then(res => res.json())
+                        .then(response => response.json())
                         .then(data => {
                             if(Object.values(data).includes('Token has expired')) {
                                 auth.removeToken();
@@ -120,7 +120,7 @@ import temps from "../utils/templates";
                                 del.addEventListener('click', event => {
                                     event.preventDefault();
                                     api.delete(`/questions/details/${this.id}`, auth.getToken())
-                                        .then(res => res.json())
+                                        .then(response => response.json())
                                         .then(data => {
                                             if (data.message === "Question deleted successfully") {
                                                 window.location.href = "/questions";
@@ -171,7 +171,7 @@ import temps from "../utils/templates";
                     answer: answer.value
                 };
                 api.post(`/questions/${this.id}/answers`, data, auth.getToken())
-                    .then(res => res.json())
+                    .then(response => response.json())
                     .then(data => {
                         if (data.message === "Answer posted successfully") {
                             window.location.reload();

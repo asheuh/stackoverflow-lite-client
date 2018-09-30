@@ -26,7 +26,7 @@ import temps from "../utils/templates";
                 } else if (auth.UserIsLoggedIn()) {
                     this.setState({isFetching: true});
                     api.get('/users/userprofile', auth.getToken())
-                        .then(res => res.json())
+                        .then(response => response.json())
                         .then(data => {
                             this.setState({isFetching: false});
                             document.getElementById("page").style.display = "block";
@@ -63,7 +63,7 @@ import temps from "../utils/templates";
         mostAnsweredQuestion = () => {
             let el = document.getElementById("mostanswer");
             api.get('/questions/mostanswers', auth.getToken())
-                .then(res => res.json())
+                .then(response => response.json())
                 .then(data => {
                     let item = data.data;
                     if (item.length === 0) {
@@ -122,14 +122,14 @@ import temps from "../utils/templates";
             }
             else if (auth.UserIsLoggedIn()) {
                 api.get('/users/userprofile', auth.getToken())
-                    .then(res => res.json())
+                    .then(response => response.json())
                     .then(data => {
                         temps.profilePageLink(data);
                 })
                 auth.logOut();
             }
             api.get('/questions/myquestions', auth.getToken())
-                .then(res => res.json())
+                .then(response => response.json())
                 .then(data => {
                     let parentNode = document.getElementById('myquestion');
                     if (data.message === "There are no questions in the db for you") {

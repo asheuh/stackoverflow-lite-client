@@ -25,7 +25,7 @@ import temps from "../utils/templates";
                 } else if (auth.UserIsLoggedIn()) {
                     this.setState({isFetching: true});
                     api.get('/users/userprofile', auth.getToken())
-                        .then(res => res.json())
+                        .then(response => response.json())
                         .then(data => {
                             this.setState({isFetching: false});
                             document.getElementById("page").style.display = "block";
@@ -33,7 +33,7 @@ import temps from "../utils/templates";
                             temps.profilePageLink(data);
                         });
                     api.get("/questions", auth.getToken())
-                        .then(res => res.json())
+                        .then(response => response.json())
                         .then(data => {
                             if (data.message === "There is no questions found") {
                                 let el = document.getElementById('msg');

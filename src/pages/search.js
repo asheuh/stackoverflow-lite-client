@@ -15,7 +15,7 @@ import temps from "../utils/templates";
                 let endpoint = `/questions/search/${selectQuery}`;
                 auth.loader();
                 api.get(endpoint, auth.getToken())
-                    .then(res => res.json())
+                    .then(response => response.json())
                     .then(data => {
                         let loadNode = document.getElementById('cont');
                         loadNode.innerHTML = '';
