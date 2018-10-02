@@ -29,7 +29,7 @@ class Profile {
                     .then(response => response.json())
                     .then(data => {
                         if (data.message === "Question deleted successfully") {
-                            window.location.href = "/questions";
+                            window.location.reload();
                         }
                         else {
                             alert(data.message);
