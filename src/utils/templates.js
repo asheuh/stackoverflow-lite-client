@@ -1,11 +1,11 @@
 class Templates {
-	profilePageLink(item) {
-		let node = document.getElementById("profile");
-		node.innerHTML = item.data.username;
-	}
+    profilePageLink(item) {
+        let node = document.getElementById("profile");
+        node.innerHTML = item.data.username;
+    }
 
-	myquestionsBody(item) {
-		return `
+    myquestionsBody(item) {
+        return `
         <ul class="qa">
             <p class="asheuh">Asked by me on ${item.date_created}</p>
             <li class="d">
@@ -26,16 +26,21 @@ class Templates {
                                 class="btn btn-primary" href="/questions/details/?${item.id}">
                                 view answers</a>
                             </div>
+                            <div class="summary">
+                                <a href="#" data-id="${item.id}"
+                                class="del-btn del">
+                                <i class="fa fa-trash"></i></a>
+                            </div>
                         </div>
                     </div>
                 </ul>
             </div>
         </ul>
         `;
-	}
+    }
 
-	mostansweredBody(item) {
-		return `
+    mostansweredBody(item) {
+        return `
         <ul class="qa">
             <p class="asheuh">Asked by me on ${item.date_created}</p>
             <li class="d">
@@ -56,22 +61,26 @@ class Templates {
                                 class="btn btn-primary" href="/questions/details/?${item.id}">
                                 view answers</a>
                             </div>
+                            <div class="summary">
+                                <a href="#" data-id="${item.id}" class="del-btn del">
+                                <i class="fa fa-trash"></i></a></a>
+                            </div>
                         </div>
                     </div>
                 </ul>
             </div>
         </ul>
         `;
-	}
+    }
 
-	profileData(data) {
-		return `
+    profileData(data) {
+        return `
         <div class="span-col-5">
             <h1 style="margin-top: 1em">${data.data.name}(${data.data.username})</h1>
             <p>Email: <i>${data.data.email}</i></p>
             <p>Username: <i>${data.data.username}</i></p>
             <p>Name: <i> ${data.data.name}</i></p>
-            <p>Registered on: <i>${data.data.registered_on}</i></p>
+            <p>Registered on: <i>${data.data.date_created}</i></p>
             <div class="social-icons">
                 <a href="#"><i style="color:blue;" class="me fab fa-facebook-square"></i></a>
                 <a href="#"><i style="color:#ffc838" class="me fab fa-instagram"></i></a>
@@ -82,10 +91,10 @@ class Templates {
             </div>
         </div>
         `;
-	}
+    }
 
-	upvoteDownvoteButton(item) {
-		return `
+    upvoteDownvoteButton(item) {
+        return `
         <div class="panel pale-green">
             <p class="asheuh">Answered by ${item.owner} on ${item.date_created}</p>
             <p>${item.answer}</p>
@@ -101,10 +110,10 @@ class Templates {
             </div>
         </div>
         `;
-	}
+    }
 
-	answerBody(data) {
-		return `
+    answerBody(data) {
+        return `
             <div class="span-col-2">
                 <h1>Question Details</h1>
                 <hr>
@@ -139,10 +148,10 @@ class Templates {
                 </div>
             </div>
             `;
-	}
+    }
 
-	questionBody(result, item) {
-		return `
+    questionBody(result, item) {
+        return `
         <ul class="qa">
             <p class="asheuh">
             Asked by ${result.data[item]["created_by"]} on ${result.data[item]["date_created"]}
@@ -175,7 +184,7 @@ class Templates {
         </ul>
 
         `;
-	}
+    }
 }
 
 const temps = new Templates();

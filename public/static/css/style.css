@@ -13,6 +13,15 @@ body {
     border-top: 0.2px solid #EAECEE;
 }
 
+.del-btn {
+    background-color:  #f8e6e2;
+    border: none;
+    color:  #ff5733 ;
+    padding: 12px 16px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+}
 
 .my-footer p {
     margin-top: 1em;
